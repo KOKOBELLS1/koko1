@@ -56,5 +56,11 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         //
+        return Student::destroy($id);
+    }
+    public function search($name)
+    {
+
+        return Student::where('FirstName', 'like', '%'.$name.'%')->orwhere('LastName', 'like', '%'.$name.'%')->get();
     }
 }
